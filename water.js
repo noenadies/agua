@@ -1,4 +1,6 @@
-﻿var CreateWaterTestScene = function (engine) {
+var CreateWaterTestScene = function (engine) {
+
+     engine.switchFullscreen(true);
     var scene = new BABYLON.Scene(engine);
 
     // Camera
@@ -11,7 +13,7 @@
     var skybox = BABYLON.Mesh.CreateBox("skyBox", 5000.0, scene);
     var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
     skyboxMaterial.backFaceCulling = false;
-    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("../../assets/skybox/TropicalSunnyDay", scene);
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("ropicalSunnyDay", scene);
     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
     skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
     skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
@@ -20,7 +22,7 @@
 
     // Water material
     var waterMaterial = new BABYLON.WaterMaterial("waterMaterial", scene, new BABYLON.Vector2(512, 512));
-    waterMaterial.bumpTexture = new BABYLON.Texture("../../assets/waterbump.png", scene);
+    waterMaterial.bumpTexture = new BABYLON.Texture("waterbump.png", scene);
     waterMaterial.windForce = -10;
     waterMaterial.waveHeight = 0.5;
     waterMaterial.bumpHeight = 0.1;
@@ -31,7 +33,7 @@
     waterMaterial.colorBlendFactor = 0;
 
     // Ground
-    var groundTexture = new BABYLON.Texture("../../assets/sand.jpg", scene);
+    var groundTexture = new BABYLON.Texture("sand.jpg", scene);
     groundTexture.vScale = groundTexture.uScale = 4.0;
 
     var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
@@ -47,7 +49,7 @@
 
     // Sphere
     var sphereMaterial = new BABYLON.StandardMaterial("sphereMaterial", scene);
-    sphereMaterial.diffuseTexture = new BABYLON.Texture("../../assets/wood.jpg", scene);
+    sphereMaterial.diffuseTexture = new BABYLON.Texture("wood.jpg", scene);
 
     var sphere = BABYLON.Mesh.CreateSphere("sphere", 32, 24, scene);
     sphere.position.y = 20;
